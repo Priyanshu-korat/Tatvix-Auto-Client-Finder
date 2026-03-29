@@ -29,14 +29,20 @@ def initialize_discovery():
     """Initialize the discovery system."""
     global discovery
     if discovery is None:
-        discovery = DailyClientDiscovery()
-        asyncio.run(discovery.initialize())
+        try:
+            discovery = DailyClientDiscovery()
+            asyncio.run(discovery.initialize())
+        except Exception as e:
+            print(f"Warning: Discovery initialization failed: {e}")
+            discovery = None
     return discovery
 
 def run_discovery_manual():
     """Manual trigger for discovery."""
     try:
         disc = initialize_discovery()
+        if disc is None:
+            return "❌ Error: Discovery system not initialized. Please check environment variables and credentials."
         result = asyncio.run(disc.run_daily_discovery())
         
         if result['success']:
@@ -69,10 +75,11 @@ def get_system_status():
     
     try:
         disc = initialize_discovery()
+        status = "✅ Running and Ready" if disc else "⚠️ Initialization Required"
         return f"""📊 SYSTEM STATUS
 
 🕐 Current Time: {current_time.strftime('%Y-%m-%d %H:%M:%S IST')}
-✅ Status: Running and Ready
+{status}
 📅 Schedule: Monday-Friday at 8:00 AM IST
 🎯 Target: 10 companies per day (3-4 Indian companies)
 
