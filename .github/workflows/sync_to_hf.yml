@@ -1,0 +1,44 @@
+name: Sync to Hugging Face Hub
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  sync-to-hub:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          lfs: true
+      
+      - name: Push to Hugging Face Hub
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+          
+          # Clone the HF repository
+          git clone https://huggingface.co/spaces/Roster94/TatvixClientFind hf_repo
+          cd hf_repo
+          
+          # Remove all files except .git
+          find . -maxdepth 1 -not -name '.git' -not -name '.' -exec rm -rf {} +
+          
+          # Copy all files from GitHub repo
+          cp -r ../. .
+          rm -rf .git
+          mv hf_repo/.git .git
+          
+          # Configure git with token
+          git remote set-url origin https://Roster94:$HF_TOKEN@huggingface.co/spaces/Roster94/TatvixClientFind
+          
+          # Add and commit changes
+          git add .
+          git commit -m "Sync from GitHub: $(date)" || echo "No changes to commit"
+          
+          # Push to HF
+          git push origin main
