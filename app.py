@@ -110,25 +110,11 @@ Use 'Run Discovery Now' to test the system manually."""
 
 # Create Gradio interface
 with gr.Blocks(
-    title="Tatvix AI Client Discovery System",
-    theme=gr.themes.Soft(),
-    css="""
-    .gradio-container {
-        max-width: 1200px !important;
-    }
-    .main-header {
-        text-align: center;
-        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        padding: 20px;
-        border-radius: 10px;
-        margin-bottom: 20px;
-    }
-    """
+    title="Tatvix AI Client Discovery System"
 ) as demo:
     
     gr.HTML("""
-    <div class="main-header">
+    <div style="text-align: center; background: linear-gradient(90deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
         <h1>🚀 Tatvix AI Client Discovery System</h1>
         <p>Automated lead generation with website validation and enhanced emails</p>
     </div>
@@ -157,8 +143,7 @@ with gr.Blocks(
                 label="System Output",
                 lines=15,
                 max_lines=20,
-                placeholder="Click any button to see results...",
-                show_copy_button=True
+                placeholder="Click any button to see results..."
             )
     
     with gr.Row():
@@ -214,5 +199,6 @@ if __name__ == "__main__":
         server_name="0.0.0.0",
         server_port=7860,
         share=False,
-        show_error=True
+        show_error=True,
+        theme=gr.themes.Soft()
     )
