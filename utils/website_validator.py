@@ -9,7 +9,7 @@ import asyncio
 import aiohttp
 import socket
 import urllib.parse
-from typing import Optional, Dict, Any, Tuple
+from typing import Optional, Dict, Any, Tuple, List
 from datetime import datetime
 import ssl
 import certifi
