@@ -1,0 +1,46 @@
+# Tatvix AI Client Discovery System - Production Dependencies
+
+# Core Configuration
+python-dotenv>=1.0.0
+pydantic>=2.5.0
+
+# Web Search and HTTP
+duckduckgo-search>=4.1.0
+requests>=2.31.0
+aiohttp>=3.9.0
+
+# Web Scraping
+beautifulsoup4>=4.12.0
+lxml>=4.9.0
+
+# AI and Machine Learning
+groq>=0.4.0
+sentence-transformers>=2.2.0
+numpy>=1.24.0
+
+# Vector Database
+chromadb>=0.4.0
+
+# Google Sheets Integration
+google-api-python-client>=2.108.0
+google-auth>=2.25.0
+gspread>=5.12.0
+
+# Email Processing
+email-validator>=2.1.0
+dnspython>=2.4.0
+
+# Data Processing
+pandas>=2.1.0
+validators>=0.22.0
+
+# Async Support
+aiofiles>=23.2.0
+
+# Utilities
+tqdm>=4.66.0
+python-dateutil>=2.8.0
+
+# Rate Limiting
+ratelimit>=2.2.0
+backoff>=2.2.0

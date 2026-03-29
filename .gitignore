@@ -1,0 +1,82 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual Environment
+.env
+.env.local
+.env.*.local
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Secrets and credentials (never commit)
+Google_sheet_json/
+*credentials*.json
+*service_account*.json
+*.pem
+*.p12
+
+# Runtime / local data (embeddings, backups, caches)
+data/
+backups/
+
+# Logs and Cache
+logs/
+cache/
+*.log
+
+# Temporary Files
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# Pickled caches and local binary state
+*.pkl
+
+# Test Files
+test_*.py
+*_test.py
+example_*.py
+validate_*.py
+tests/
+
+# IDE Files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS Files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Distribution
+build/
+dist/
+*.egg-info/
+
+# Documentation (keep only README.md)
+PROMPT_*.md
+PHASE_*.md
+*_IMPLEMENTATION_*.md
+TESTING_GUIDE.md
+README_*.md
+*_TEST_REPORT.md
+
+# Scripts
+*.bat
+*.ps1
+
+# Exported / generated JSON (reports, API dumps); do not commit client data
+*.json
+
+# Development Dependencies
+requirements-dev.txt
