@@ -51,3 +51,6 @@ pytz>=2023.3
 
 # SSL Support
 certifi>=2023.7.22
+
+# Web Framework
+flask>=2.3.0
