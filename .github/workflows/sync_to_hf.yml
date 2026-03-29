@@ -21,24 +21,19 @@ jobs:
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
           
-          # Clone the HF repository
-          git clone https://huggingface.co/spaces/Roster94/TatvixClientFind hf_repo
-          cd hf_repo
+          # Install Hugging Face CLI
+          pip install huggingface_hub
           
-          # Remove all files except .git
-          find . -maxdepth 1 -not -name '.git' -not -name '.' -exec rm -rf {} +
-          
-          # Copy all files from GitHub repo
-          cp -r ../. .
-          rm -rf .git
-          mv hf_repo/.git .git
-          
-          # Configure git with token
-          git remote set-url origin https://Roster94:$HF_TOKEN@huggingface.co/spaces/Roster94/TatvixClientFind
-          
-          # Add and commit changes
-          git add .
-          git commit -m "Sync from GitHub: $(date)" || echo "No changes to commit"
-          
-          # Push to HF
-          git push origin main
+          # Login to Hugging Face
+          python -c "
+          from huggingface_hub import HfApi
+          import os
+          api = HfApi()
+          api.upload_folder(
+              folder_path='.',
+              repo_id='Roster94/TatvixClientFind',
+              repo_type='space',
+              token=os.environ['HF_TOKEN'],
+              commit_message='Sync from GitHub: $(date)'
+          )
+          "
