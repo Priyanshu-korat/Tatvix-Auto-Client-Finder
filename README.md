@@ -1,3 +1,16 @@
+---
+title: Tatvix AI Client Discovery System
+emoji: 🚀
+colorFrom: blue
+colorTo: purple
+sdk: gradio
+sdk_version: "4.0.0"
+python_version: "3.11"
+app_file: app.py
+pinned: false
+license: apache-2.0
+---
+
 # 🚀 Tatvix AI Client Discovery System
 
 Automated lead generation system that discovers, validates, and adds qualified companies to your Google Sheet with enhanced personalized emails.
