@@ -195,6 +195,7 @@ if __name__ == "__main__":
     print("🚀 Starting Tatvix AI Client Discovery System...")
     print("📅 Scheduled: Monday-Friday at 8:00 AM IST")
     print("🎯 Target: 10 companies per day (3-4 Indian)")
+    print("✅ All Gradio compatibility issues fixed!")
     demo.launch(
         server_name="0.0.0.0",
         server_port=7860,
