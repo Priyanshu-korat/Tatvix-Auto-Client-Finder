@@ -55,4 +55,4 @@ pytz>=2023.3
 certifi>=2023.7.22
 
 # Web Framework for Hugging Face Spaces
-gradio>=4.44.1
+gradio>=6.10.0
